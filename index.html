@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STest</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/plugin/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugin/all.min.css">
+    <link rel="stylesheet" href="css/plugin/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/plugin/owl.theme.default.min.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <div class="header__logo-icon"><span><a href="#">S</a></span></div>
+                    <div class="header__logo-name"><a href="#">STest</a></div>
+                </div>
+                <div class="header__search">
+                    <input type="text" id="search-test" class="search-field" placeholder="Пошук тестів">
+                    <label class="search-field-label" for="search-test"><i class="fas fa-search"></i></label>
+                </div>
+                <div class="header__login df">
+                    <button class="df">Увійти&nbsp;<i class="far fa-user"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="popular">
+        <div class="popular__title">
+            <div class="container">
+            <p>Тести дня</p>
+        </div>
+        </div>
+        <div class="popular__content">
+            <div class="popular__content-slider owl-carousel" id="popularSlideWrap">
+                <div class="popular__content-slide">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <script src="libs/plugin/jquery-3.5.1.js"></script>
+    <script src="libs/plugin/bootstrap.min.js"></script>
+    <script src="libs/plugin/all.min.js"></script>
+    <script src="libs/plugin/owl.carousel.min.js"></script>
+    <script>
+        class popularTestSlider{
+            constructor(baseContainerId, onSuccess){
+                this.baseContainer = document.getElementById(baseContainerId);
+                if(this.baseContainer == null){
+                    console.warn(`baseContainer is not defined`);
+                }
+                this.baseContainer.innerHTML = ``;
+                this.onSuccess = null;
+                if(typeof onSuccess != 'undefined'){
+                    this.onSuccess = onSuccess;
+                }
+                this.__init();
+            }
+            __init(){
+                this.__buildLides();
+            }
+            __buildLides(callback){
+                var index = 0;
+                for (let i = 1; i < 10; i++) {
+                    index++;
+                    let slideItem = document.createElement(`div`);
+                    slideItem.classList.add(`popular__content-slide`);
+                    slideItem.style.background = `url(../img/slide${index}.png)`;
+                    this.baseContainer.appendChild(slideItem);
+                    if(i == 5){
+                        index = 1;
+                    }
+                }
+                if(this.onSuccess != null){
+                    this.onSuccess();
+                }
+            }
+        }
+
+        let popularTest = new popularTestSlider(`popularSlideWrap`, _=>{
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                loop:true,
+                nav:false,
+                margin:153,
+                responsive:{
+                    0:{
+                        items:1
+                    },
+                    600:{
+                        items:3
+                    },            
+                    960:{
+                        items:5
+                    },
+                    1200:{
+                        items:6
+                    }
+                }
+            });
+
+            // owl.on('mousewheel', '.owl-stage', function (e) {
+            // if (e.deltaY>0) {
+            //     owl.trigger('next.owl');
+            // } else {
+            //     owl.trigger('prev.owl');
+            // }
+            // e.preventDefault();
+            // });
+        });
+
+    </script>
+</body>
+</html>
