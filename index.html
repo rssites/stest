@@ -38,13 +38,31 @@
         <div class="popular__content">
             <div class="popular__content-slider owl-carousel" id="popularSlideWrap">
                 <div class="popular__content-slide">
-
+                    
                 </div>
             </div>
         </div>
     </div>
     </section>
 
+    <section class="filterTest">
+        <div class="container">
+        <div class="filterTest__search df">
+            <div class="filterTest__search-title">
+                Виконуй тести тут!
+            </div>
+            <div class="header__search">
+                <input type="text" id="search-test" class="search-field" placeholder="Пошук тестів">
+                <label class="search-field-label" for="search-test"><i class="search-filter-icon"></i></label>
+            </div>
+            <div class="category type-search-filter df-c"><span>Категорії</span></div>
+            <div class="filter type-search-filter df-c"><span>Фільтри</span></div>
+        </div>
+        <div class="filterTest__list df" id="filterItem-container">
+            
+        </div>
+    </div>
+    </section>
     <script src="libs/plugin/jquery-3.5.1.js"></script>
     <script src="libs/plugin/bootstrap.min.js"></script>
     <script src="libs/plugin/all.min.js"></script>
@@ -61,26 +79,71 @@
                 if(typeof onSuccess != 'undefined'){
                     this.onSuccess = onSuccess;
                 }
+                this.startArr = [{id: 1, name: `психології`}, {id: 2, name: `географії`}, {id: 3, name: `укр.мови`}, {id: 4, name: `економіки`}, {id: 5, name: `математики`}];
+                this.startFilterArr = [{id: 1, name: `психології`, color: `color-y`}, {id: 2, name: `географії`, color: `color-wg`}, {id: 3, name: `укр.мови`, color: `color-p`}, {id: 4, name: `економіки`, color: `color-g`}];
                 this.__init();
             }
             __init(){
                 this.__buildLides();
+                this.__buildsFilterList();
             }
             __buildLides(callback){
                 var index = 0;
-                for (let i = 1; i < 10; i++) {
-                    index++;
+                this.startArr.forEach(el =>{
                     let slideItem = document.createElement(`div`);
                     slideItem.classList.add(`popular__content-slide`);
-                    slideItem.style.background = `url(./img/slide${index}.png)`;
+                    slideItem.style.background = `url(./img/slide${el.id}.png)`;
+                    slideItem.innerHTML = `<div class="slide-like">
+                        <i class="like-test" ></i>
+                    </div>
+                    <div class="slide-interactive">
+                        <p>тести&nbsp;дня</p> <button class="slide-interactive-btn"><img src="img/icons/arrow-right.svg" alt=""></button>
+                    </div>
+                        <div class="slide-title">
+                            Тести з ${el.name}
+                                для першого</br>курсу
+                        </div>`;
                     this.baseContainer.appendChild(slideItem);
-                    if(i == 5){
-                        index = 1;
-                    }
-                }
+                });
+
+                this.startArr.forEach(el =>{
+                    let slideItem = document.createElement(`div`);
+                    slideItem.classList.add(`popular__content-slide`);
+                    slideItem.style.background = `url(./img/slide${el.id}.png)`;
+                    slideItem.innerHTML = `<div class="slide-like">
+                        <i class="like-test" ></i>
+                    </div>
+                    <div class="slide-interactive">
+                        <p>тести&nbsp;дня</p> <button class="slide-interactive-btn"><img src="img/icons/arrow-right.svg" alt=""></button>
+                    </div>
+                        <div class="slide-title">
+                            Тести з ${el.name}
+                                для першого</br>курсу
+                        </div>`;
+                    this.baseContainer.appendChild(slideItem);
+                });
+
                 if(this.onSuccess != null){
                     this.onSuccess();
                 }
+            }
+
+            __buildsFilterList(){
+                this.filterItemContainer = document.getElementById(`filterItem-container`);
+                this.filterItemContainer.innerHTML = ``;
+                this.startFilterArr.forEach(el => {
+                   let item = document.createElement(`div`);
+                   item.classList.add(`filterTest__list-item`, 'df');
+                   item.style.background = `url(./img/filter-icon${el.id}.png)`;
+                   item.innerHTML = `<div class="filterTest__list-title">
+                    Тест з ${el.name}
+                </div>
+                <div class="filterTest__list-wrap">
+                    <button class="filterTest__list-btn ${el.color}"><span style="margin-bottom: 5px;">Пройти тест</span></button>
+                </div>`;
+
+                this.filterItemContainer.appendChild(item);
+                });
             }
         }
 
