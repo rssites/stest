@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STest. Вхід</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/plugin/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugin/all.min.css">
+    <link rel="stylesheet" href="css/plugin/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/plugin/owl.theme.default.min.css">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
+</head>
+<body>
+    
+    <header class="header">
+        <div class="my-container">
+            <div class="header__content header-login">
+                <div class="header__logo">
+                    <div class="header__logo-icon"><span><a href="index.html">S</a></span></div>
+                    <div class="header__logo-name"><a href="index.html">STest</a></div>
+                </div>
+                <div class="socials-box df">
+                    <div class="title"><p>Сліди за нами в соціальних мережах —</p></div>
+                    <div class="socials-list df">
+                        <a href="javascript:;" class="ins"><i class="fab fa-instagram"></i></a>
+                        <a href="javascript:;" class="tl"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="javascript:;" class="fb"><i class="fab fa-facebook-f"></i></a>
+                        <a href="javascript:;" class="in"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>  
+                <div id="plant-type" class="plant-type" style="display: flex;">
+                    <input type="radio" checked name="radio-plans" id="login-btn" class="input-plan packet-input-1"><label id="login-btn" for="login-btn">Увійти</label><input type="radio" name="radio-plans" id="registr-btn" class="input-plan packet-input-2"><label id="registr-btn" for="registr-btn">Зареєструватися</label><span class="glider"></span></div>
+            </div>
+        </div>
+    </header>
+    <section class="login">
+        <div class="my-container" style="overflow-x: hidden;">
+            <div class="login-registr-wrap">
+            <div class="login__user df" id="login__user"> 
+           <div class="login__image">
+    <img src="img/login-icon.png" alt="">
+</div>
+<div class="login__form">
+    <p class="title">Увійти</p>
+    <form class="login-form" action="">
+        <div class="user-login-name-wrap input-wrap">
+        <input type="text" name="user-login-name" id="user-login-name" required>
+        <label for="user-login-name">Логин</label>
+    </div>
+    <div class="user-login-pass-wrap input-wrap">
+        <input type="text" name="user-login-pass" id="user-login-pass" required>
+        <label for="user-login-pass">Пароль</label>
+    </div>
+    <div class="btn-wrap df-c w-100">
+        <button class="filterTest__list-btn color-o" anim="ripple"><span style="margin-bottom: 5px;">Увійти</span></button>
+    </div>
+    </form>
+</div>
+            </div>
+            <div class="login__registration df"  id="login__registration" >
+                <div class="login__image">
+                    <img src="img/registr-icon.png" alt="">
+                </div>
+                <div class="login__form">
+                    <p class="title">Зареєструватися</p>
+                    <form class="login-form" action="">
+                        <div class="user-login-name-wrap input-wrap">
+                            <input type="text" name="user-registr-name" id="user-registr-name" required>
+                            <label for="user-registr-name">Ім’я</label>
+                        </div>
+                        <div class="user-login-name-wrap input-wrap">
+                        <input type="text" name="user-registr-login" id="user-registr-login" required>
+                        <label for="user-registr-login">Логин</label>
+                    </div>
+                    <div class="user-login-pass-wrap input-wrap">
+                        <input type="text" name="user-registr-pass" id="user-registr-pass" required>
+                        <label for="user-registr-pass">Пароль</label>
+                    </div>
+                    <div class="btn-wrap df-c w-100">
+                        <button class="filterTest__list-btn color-o registr-btn" anim="ripple"><span style="margin-bottom: 5px;">Зареєструватися</span></button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="my-container">
+            <div class="footer-wrap df">
+        <div class="header__logo">
+            <div class="header__logo-icon"><span><a href="index.html">S</a></span></div>
+            <div class="header__logo-name"><a href="index.html">STest</a></div>
+        </div>
+
+        <div class="socials-box df">
+            <div class="title"><p>Сліди за нами в соціальних мережах —</p></div>
+            <div class="socials-list df">
+                <a href="javascript:;" class="ins"><i class="fab fa-instagram"></i></a>
+                <a href="javascript:;" class="tl"><i class="fab fa-telegram-plane"></i></a>
+                <a href="javascript:;" class="fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="javascript:;" class="in"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="root"><p>Всі права захищені!!!</p></div>
+    </div>
+    </div>
+    </footer>
+    <script src="libs/plugin/jquery-3.5.1.js"></script>
+    <script src="libs/plugin/bootstrap.min.js"></script>
+    <script src="libs/plugin/all.min.js"></script>
+    <script>
+
+[].map.call(document.querySelectorAll('[anim="ripple"]'), el=> {
+    el.addEventListener('click',e => {
+        e = e.touches ? e.touches[0] : e;
+        const r = el.getBoundingClientRect(), d = Math.sqrt(Math.pow(r.width,2)+Math.pow(r.height,2)) * 2;
+        el.style.cssText = `--s: 0; --o: 1;`;  el.offsetTop; 
+        el.style.cssText = `--t: 1; --o: 0; --d: ${d}; --x:${e.clientX - r.left}; --y:${e.clientY - r.top};`
+    })
+});
+
+        class Login{
+            constructor(){
+                this.loginBtn = document.getElementById(`login-btn`);
+                this.registrBtn = document.getElementById(`registr-btn`);
+
+                this.loginContainer = document.getElementById(`login__user`);
+                this.registrContainer = document.getElementById(`login__registration`);
+
+                this.loginBtn.addEventListener(`change`, _=>{this._checkType()});
+                this.registrBtn.addEventListener(`change`, _=>{this._checkType()});
+                this.baseContainer = document.querySelector(`.login-registr-wrap`);
+                this._checkType();
+            }
+            _checkType(){
+                this.width = this.loginContainer.offsetWidth;
+
+                if(this.loginBtn.checked){
+                    // this.loginContainer.style.display = 'flex';
+                    // this.registrContainer.style.display = 'none';
+                    this.baseContainer.style.transform = `translateX(0)`;
+                }
+
+                if(this.registrBtn.checked){
+                    // this.registrContainer.style.display = 'flex';
+                    // this.loginContainer.style.display = 'none';
+                    this.baseContainer.style.transform = `translateX(${-this.width}px)`;
+                }
+            }
+        }
+        let login = new Login();
+    </script>
+</body>
+</html>

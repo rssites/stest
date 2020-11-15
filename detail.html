@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STest. Тест з географії</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/plugin/bootstrap.min.css">
+    <link rel="stylesheet" href="css/plugin/all.min.css">
+    <link rel="stylesheet" href="css/plugin/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/plugin/owl.theme.default.min.css">
+    <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
+</head>
+<body>
+    <header class="header">
+        <div class="my-container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <div class="header__logo-icon"><span><a href="index.html">S</a></span></div>
+                    <div class="header__logo-name"><a href="index.html">STest</a></div>
+                </div>
+                <div class="header__search">
+                    <input type="text" id="search-test" class="search-field" placeholder="Пошук тестів">
+                    <label class="search-field-label" for="search-test"><i class="fas fa-search"></i></label>
+                </div>
+                <div class="header__login df">
+                    <a href="login.html" class="df">Увійти&nbsp;<i class="far fa-user"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="detail">
+        <div class="my-container">
+        <div class="detail__option df">
+            <div class="detail__like df">
+                <button class="detail__like-btn" id="to-library"></button>
+                <div class="detail__like-title">
+                    <p>Натисни щоб додати цей тест в бібліотеку </p>
+                    <p>Перевір свої можливостів кращому тесті цього місяця!</p>
+                </div>
+            </div>
+            <a href="index.html" class="detail__close close"></a>
+        </div>
+        <div class="detail_description df-c">
+            <div class="detail_description-title df-c">
+                <p>Тест з географії</p>
+                <span>Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст." Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном "lorem ipsum" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, "Тут іде текст. Тут іде текст." Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном "lorem ipsum" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані.</span>
+            </div>
+        </div>
+        <div class="detail__start-test">
+            <div class="startTestSlider__container-item df">
+                <form class="startTestSlider__container-item-send-form">
+                    <input type="text" required placeholder="Ім’я">
+                    <input type="text" required placeholder="Прізвище">
+                    <div class="btn-wrap df-c w-100">
+                        <button class="filterTest__list-btn" anim="ripple"><span style="margin-bottom: 5px;">Розпочати тест</span></button>
+                    </div>
+                </form>
+                <div class="detail__image">
+                    <img src="img/detail.png" alt="">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </section>
+
+    <footer class="footer  bg-test">
+        <div class="my-container">
+            <div class="footer-wrap df">
+        <div class="header__logo">
+            <div class="header__logo-icon"><span><a href="index.html">S</a></span></div>
+            <div class="header__logo-name"><a href="index.html">STest</a></div>
+        </div>
+        <div class="search-test-box">
+            <input type="text" id="search" placeholder="Пошук">
+            <label for="search"><img src="img/icons/arrow-down.svg" alt=""></label>
+        </div>
+        <div class="socials-box df">
+            <div class="title"><p>Сліди за нами в соціальних мережах —</p></div>
+            <div class="socials-list df">
+                <a href="javascript:;" class="ins"><i class="fab fa-instagram"></i></a>
+                <a href="javascript:;" class="tl"><i class="fab fa-telegram-plane"></i></a>
+                <a href="javascript:;" class="fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="javascript:;" class="in"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="root"><p>Всі права захищені!!!</p></div>
+    </div>
+    </div>
+    </footer>
+    <script src="libs/plugin/jquery-3.5.1.js"></script>
+    <script src="libs/plugin/bootstrap.min.js"></script>
+    <script src="libs/plugin/all.min.js"></script>
+    <script>
+                [].map.call(document.querySelectorAll('[anim="ripple"]'), el=> {
+    el.addEventListener('click',e => {
+        e = e.touches ? e.touches[0] : e;
+        const r = el.getBoundingClientRect(), d = Math.sqrt(Math.pow(r.width,2)+Math.pow(r.height,2)) * 2;
+        el.style.cssText = `--s: 0; --o: 1;`;  el.offsetTop; 
+        el.style.cssText = `--t: 1; --o: 0; --d: ${d}; --x:${e.clientX - r.left}; --y:${e.clientY - r.top};`
+    })
+});
+    document.getElementById(`to-library`).addEventListener('click', function(){
+        this.classList.toggle(`isLike`);
+    });
+    </script>
+</body>
+</html>
